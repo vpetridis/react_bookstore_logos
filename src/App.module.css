@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Alata&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Roboto&family=Sacramento&display=swap');
 
 :root {
   /* COLORS */
@@ -13,6 +13,7 @@
   /* TYPOGRAPHY */
   --ff-primary: 'Alata', sans-serif;
   --ff-secondary: 'Roboto', sans-serif;
+  --ff-logo: 'Sacramento', sans-serif;
 }
 
 h1 {
@@ -23,7 +24,7 @@ h1 {
 p {
   font-family: var(--ff-primary);
   color: var(--fc-secondary);
-  font-size: calc(.8rem + .2vmin);
+  font-size: calc(0.8rem + 0.2vmin);
   line-height: 1.15;
 }
 
@@ -35,6 +36,8 @@ p {
   width: 100vw;
   height: 100vh;
   padding: 1.3em 1em;
+  position: relative;
+  overflow: hidden;
 }
 
 .appContainer {

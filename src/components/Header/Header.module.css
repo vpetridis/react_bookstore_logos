@@ -1,5 +1,37 @@
 .container {
   grid-column: 1/-1;
   grid-row: 1/ 1;
-  border: 1px solid red;
+
+  display: grid;
+  grid-template-columns: 150px auto 150px;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--ff-logo);
+  margin: 0 0.3em;
+  /* align-self: baseline; */
+}
+.title {
+  text-align: center;
+  /* align-self: baseline; */
+}
+
+.iconsContainer {
+  /* align-self: baseline; */
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon {
+  margin: 0 0.3rem;
+}
+.icon i {
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  border: 1px solid var(--fc-primary);
+  border-radius: 10px;
+  color: var(--fc-primary);
 }

@@ -1,24 +1,27 @@
-.container{
-   grid-row: 3/ 12;
-   grid-column: 1/-1;
-   background: gray;
+.container {
+  grid-row: 3/ 12;
+  grid-column: 1/-1;
 
-   /* COLLECTIONS GRID */
-   display: grid;
-   grid-template-columns: repeat(6, 1fr);
-   grid-template-rows: repeat(12, 1fr);
-   position: relative;
+  /* COLLECTIONS GRID */
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  position: relative;
 }
-.collectionsContainer{
-   grid-column: 1/5;
-   grid-row: 1/-1;
-   border: 1px solid red;
+.collectionsContainer {
+  grid-column: 1/5;
+  grid-row: 1/-1;
 }
-.bookShowcaseContainer{
-   grid-column: 5/7;
-   grid-row: 1/-1;
-   border: 5px solid blue;
-   position: absolute;
-   top: -10px;
-   bottom: 10px;
+.bookShowcaseContainer {
+  grid-column: 5/7;
+  grid-row: 1/-1;
+  border: 1px solid var(--color-borders);
+  background: var(--color-background);
+  box-shadow: 1px 3px 9px 2px #49494998 ;
+  border-radius: 21px;
+  margin: 0 1em;
+  padding: 0.5em;
+  position: absolute;
+  top: -35px;
+  bottom: 10px;
 }

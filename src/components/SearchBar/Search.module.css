@@ -1,6 +1,65 @@
-.container{
-   grid-column: 1/-1;
-   grid-row: 2/2;
-   border: 1px solid red;
+.container {
+  grid-column: 1/-1;
+  grid-row: 2/2;
+  background: var(--color-primary);
+  width: 100%;
+  height: 10vh;
+  /* position: absolute;
+  left: 10px;
+  top: 20vh; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
 
+.container::after {
+  content: '';
+  position: absolute;
+  background: var(--color-primary);
+  height: 10vh;
+  width: 250px;
+  right: -40px;
+}
+.container::before {
+  content: '';
+  position: absolute;
+  background: var(--color-primary);
+  height: 10vh;
+  width: 250px;
+  left: -40px;
+  z-index: 1;
+}
+
+.searchItem {
+  z-index: 10;
+  position: relative;
+}
+
+.searchItem input {
+  background-image: url('../../assets/magifier.svg');
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-position-x: 3%;
+  background-position-y: center;
+
+  width: 100%;
+  height: 100%;
+  margin: 0 2.5em;
+  border: 1px solid var(--color-borders);
+  border-radius: 10px;
+  padding: 0.4em 2.4em;
+  font-family: var(--ff-primary);
+  color: var(--fc-secondary);
+}
+input[type='text']:focus {
+  outline: none;
+}
+
+input::placeholder {
+  font-size: 0.9rem;
+  padding-left: 1.4em;
+  font-family: var(--ff-primary);
+  border-bottom: 1px solid var(--color-borders);
+  color: var(--fc-details);
 }
