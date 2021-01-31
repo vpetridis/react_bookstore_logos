@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Roboto&display=swap');
+
+:root {
+  /* COLORS */
+  --color-primary: #367350;
+  --color-secondary: #3d7bbf;
+  --color-borders: #8d8d8d;
+  --color-background: #fcfcfc;
+  --fc-primary: #734930;
+  --fc-secondary: #3f3f3f;
+  --fc-details: #b4bbbf;
+
+  /* TYPOGRAPHY */
+  --ff-primary: 'Alata', sans-serif;
+  --ff-secondary: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-family: var(--ff-primary);
+  color: var(--fc-primary);
+  font-size: calc(2rem + 2vmin);
+}
+p {
+  font-family: var(--ff-primary);
+  color: var(--fc-secondary);
+  font-size: calc(.8rem + .2vmin);
+  line-height: 1.15;
+}
+
+.mainContainer {
+  background: url('./assets/bg.svg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  padding: 1.3em 1em;
+}
+
+.appContainer {
+  background: var(--color-background);
+  width: calc(100%);
+  height: calc(100%);
+
+  border: 1px solid var(--color-borders);
+  border-radius: 1rem;
+  /* GRID SYSTEM FOR APP */
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 15vh repeat(10, 1fr);
+}
