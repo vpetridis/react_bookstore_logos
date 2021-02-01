@@ -1,20 +1,43 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './CollectionsPage.module.css'
 import BookShowcase from '../components/BookShowCase/BookShowcase'
+import BookItem from '../components/BookItem/BooItem'
 
 export default function CollectionsPage() {
+  const [books, setBooks] = useState({ isLoading: true })
+  const [bookItem, setBookItem] = useState()
+
+  const loadData = () => {
+    fetch(
+      `https://www.googleapis.com/books/v1/volumes?q=Stephen+King
+      ?key=${process.env.REACT_APP_GOOGLE_BOOKAPI_KEY}`
+    )
+      .then((response) => response.json())
+      .then(({ items }) => {
+        setBooks({ items, isLoading: false })
+      })
+
+      .catch((err) => console.log(err))
+  }
+  useEffect(() => {
+    loadData()
+  }, [])
+
+  useEffect(() => {
+books.items.map((item=> console.log(item.selfLink)))    // setBookItem(books.selfLink)
+  }, [books])
+
+  if (books.isLoading) {
+    return <h1>Loading...</h1>
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.collectionsContainer}>
         <h1>CollectionsPage</h1>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam, nam iste. Sapiente
-          similique laborum exercitationem laudantium, consectetur voluptatem repudiandae
-          reprehenderit totam est! Doloremque praesentium ut minima molestias eos excepturi
-          eveniet.Sunt amet corporis, magni rem doloribus quis quaerat deleniti voluptatibus
-          consequuntur blanditiis numquam tempora libero possimus ab reprehenderit odio esse laborum
-          assumenda nihil provident suscipit voluptatem a! Optio, ea recusandae.
-        </p>
+        {/* {items.books.map(({ id, selfLink }) => (
+          <p key={id}>{selfLink}</p>
+        ))} */}
       </div>
       <BookShowcase />
     </div>
