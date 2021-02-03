@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import styles from './BookItem.module.css'
-import { Textfit } from 'react-textfit'
 
 export default function BookItem({ title, subtitle, imageLinks }) {
   const componentCheck = () => {
-    if (title && imageLinks && subtitle) {
+    if (title && imageLinks) {
       // console.log(title, imageLinks.thumbnail)
       return true
     }

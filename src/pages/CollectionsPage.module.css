@@ -1,10 +1,10 @@
 .container {
   grid-row: 3/ 12;
   grid-column: 1/-1;
-
+  padding: 0.5em;
   /* COLLECTIONS GRID */
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(6, auto);
   grid-template-rows: repeat(12, 1fr);
   position: relative;
 }
@@ -13,8 +13,9 @@
   grid-row: 1/-1;
   overflow: scroll;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax( 350px, auto));
+  grid-template-columns: repeat(auto-fit, minmax( 192px, auto));
   gap: 1em;
+  justify-content: center;
 }
 
 .bookShowcaseContainer {

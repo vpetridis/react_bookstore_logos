@@ -1,20 +1,23 @@
-import React, { useContext } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import Header from './components/Header/Header'
 import CollectionsPage from './pages/CollectionsPage'
 import SearchBar from './components/SearchBar/SearchBar'
-import { Query } from './contexts/QueryContext'
 import styles from './App.module.css'
 
 const SearchQuery = React.createContext()
 export default function App() {
+  const [queryString, setQueryString] = useState('')
+
+  function handleSearch(e) {
+    setQueryString(e.target.value)
+    console.log(e.target.value)
+  }
   return (
     <div className={styles.mainContainer}>
       <div className={styles.appContainer}>
         <Header />
-        <Query.Provider value='hi from provider'>
-          <SearchBar />
-          <CollectionsPage />
-        </Query.Provider>
+        <SearchBar query={queryString} handleSearch={handleSearch} />
+        <CollectionsPage query={queryString} />
       </div>
     </div>
   )
