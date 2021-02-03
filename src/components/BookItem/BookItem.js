@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import styles from './BookItem.module.css'
+import { Textfit } from 'react-textfit'
 
-export default function BooItem({ title, description, printedPageCount, imageLinks }) {
+export default function BookItem({ title, subtitle, imageLinks }) {
   const componentCheck = () => {
-    if (title && description && imageLinks) {
-      console.log(title, description, imageLinks.thumbnail)
+    if (title && imageLinks && subtitle) {
+      // console.log(title, imageLinks.thumbnail)
       return true
     }
   }
@@ -15,9 +16,9 @@ export default function BooItem({ title, description, printedPageCount, imageLin
   if (componentCheck()) {
     return (
       <div className={styles.container}>
-        <h1>{title}</h1>
-        <p>{description}</p> <span>{printedPageCount}</span>
-        <img src={imageLinks.thumbnail} alt="book poster" />
+        <img className={styles.poster} src={imageLinks.thumbnail} alt="book poster" />
+        <h1 className={styles.title}>{title}</h1> {/* {subtitle} */}
+        
       </div>
     )
   }
