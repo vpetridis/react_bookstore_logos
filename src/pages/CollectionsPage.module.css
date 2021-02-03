@@ -13,12 +13,13 @@
   grid-row: 1/-1;
   overflow: scroll;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax( 192px, auto));
+  grid-template-columns: repeat(auto-fit, minmax(192px, auto));
   gap: 1em;
   justify-content: center;
 }
 
 .bookShowcaseContainer {
+  min-width: 316px;
   grid-column: 5/7;
   grid-row: 1/-1;
   border: 1px solid var(--color-borders);

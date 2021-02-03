@@ -3,7 +3,7 @@ import styles from './CollectionsPage.module.css'
 import BookShowcase from '../components/BookShowCase/BookShowcase'
 import BookItem from '../components/BookItem/BookItem'
 
-export default function CollectionsPage({ query }) {
+export default function CollectionsPage({ query, handleBookClick, selectedBook }) {
   const [books, setBooks] = useState({ items: [], isLoading: true })
   const [bookItem, setBookItem] = useState({ item: [], isLoading: false })
 
@@ -41,13 +41,13 @@ export default function CollectionsPage({ query }) {
       <div className={styles.collectionsContainer}>
         {books.items ? (
           books.items.map(({ id, volumeInfo }) => {
-            return <BookItem key={id} {...volumeInfo} />
+            return <BookItem id={id} key={id} {...volumeInfo} handleBookClick={handleBookClick} />
           })
         ) : (
           <h1>Still loading...</h1>
         )}
       </div>
-      <BookShowcase />
+      <BookShowcase selectedBook={selectedBook} handleBookClick={handleBookClick} />
     </div>
   )
 }
