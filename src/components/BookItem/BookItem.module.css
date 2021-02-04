@@ -11,6 +11,7 @@
   
   overflow: hidden;
   white-space: wrap;
+  box-shadow: 2px 1px 4px rgba(0, 0, 0, .5);
 }
 .title {
   /* font size with react-fitText */

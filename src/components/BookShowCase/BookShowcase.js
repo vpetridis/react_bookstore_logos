@@ -1,11 +1,12 @@
-import React from 'react'
-import styles from '../../pages/CollectionsPage.module.css'
-import stylesBookShowcase from './BookShowcase.module.css'
+import React from "react";
+import stylesBookShowcase from "./BookShowcase.module.css";
 export default function BookShowcase({ selectedBook }) {
-  const [id, title, imageLink] = selectedBook
-  console.log(imageLink)
+  const [id, title, imageLink] = selectedBook;
+  console.log(imageLink);
   return (
-    <div className={styles.bookShowcaseContainer}>
+    <div
+      className={`${stylesBookShowcase.container} animate__animated animate__bounceIn`}
+    >
       {id && title ? (
         <>
           {/* <iframe
@@ -22,8 +23,8 @@ export default function BookShowcase({ selectedBook }) {
           />
         </>
       ) : (
-        <h1>Select a book</h1>
+        <h1 className={stylesBookShowcase.title}>Select a book</h1>
       )}
     </div>
-  )
+  );
 }

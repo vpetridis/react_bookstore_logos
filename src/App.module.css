@@ -50,5 +50,5 @@ p {
   /* GRID SYSTEM FOR APP */
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 15vh repeat(10, 1fr);
+  grid-template-rows: 10vh repeat(10, 1fr);
 }

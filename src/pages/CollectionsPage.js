@@ -1,53 +1,67 @@
-import React, { useState, useEffect, useContext } from 'react'
-import styles from './CollectionsPage.module.css'
-import BookShowcase from '../components/BookShowCase/BookShowcase'
-import BookItem from '../components/BookItem/BookItem'
+import React, { useState, useEffect, useContext } from "react";
+import styles from "./CollectionsPage.module.css";
+import BookShowcase from "../components/BookShowCase/BookShowcase";
+import BookItem from "../components/BookItem/BookItem";
 
-export default function CollectionsPage({ query, handleBookClick, selectedBook }) {
-  const [books, setBooks] = useState({ items: [], isLoading: true })
-  const [bookItem, setBookItem] = useState({ item: [], isLoading: false })
+export default function CollectionsPage({
+  query,
+  handleBookClick,
+  selectedBook,
+}) {
+  const [books, setBooks] = useState({ items: [], isLoading: true });
+  const [bookItem, setBookItem] = useState({ item: [], isLoading: false });
 
   const loadData = () => {
     fetch(`${process.env.REACT_APP_GOOGLE_BOOKAPI_URL}${query}`)
       .then((response) => {
-        console.log('response', response)
-        return response.json()
+        console.log("response", response);
+        return response.json();
       })
       .then(({ items }) => {
-        console.log('fetch: ', items)
-        setBooks({ items, isLoading: false })
+        console.log("fetch: ", items);
+        setBooks({ items, isLoading: false });
       })
-      .catch((err) => console.log(err))
-  }
+      .catch((err) => console.log(err));
+  };
   useEffect(() => {
-    loadData()
-  }, [query])
+    loadData();
+  }, [query]);
 
   useEffect(() => {
     if (books.items) {
-      setBookItem({ item: books.items, isLoading: true })
-      console.log('books items is: ', books.items)
+      setBookItem({ item: books.items, isLoading: true });
+      console.log("books items is: ", books.items);
     }
-  }, [books])
+  }, [books]);
 
   if (books.isLoading) {
-    return <h1>Loading...</h1>
+    return <h1>Loading...</h1>;
   }
   if (!query) {
-    return <h1>Let's read something today...'</h1>
+    return <h1>Let's read something today...'</h1>;
   }
   return (
     <div className={styles.container}>
       <div className={styles.collectionsContainer}>
         {books.items ? (
           books.items.map(({ id, volumeInfo }) => {
-            return <BookItem id={id} key={id} {...volumeInfo} handleBookClick={handleBookClick} />
+            return (
+              <BookItem
+                id={id}
+                key={id}
+                {...volumeInfo}
+                handleBookClick={handleBookClick}
+              />
+            );
           })
         ) : (
           <h1>Still loading...</h1>
         )}
       </div>
-      <BookShowcase selectedBook={selectedBook} handleBookClick={handleBookClick} />
+      <BookShowcase
+        selectedBook={selectedBook}
+        handleBookClick={handleBookClick}
+      />
     </div>
-  )
+  );
 }
