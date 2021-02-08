@@ -23,7 +23,8 @@ export default function App() {
     <div className={styles.mainContainer}>
       <div className={styles.appContainer}>
         <Header />
-        <SearchBar query={queryString} handleSearch={handleSearch} />
+        <SearchBar query={{queryString, setQueryString
+        }} handleSearch={handleSearch} />
         <CollectionsPage
           selectedBook={selectedBook}
           query={queryString}
